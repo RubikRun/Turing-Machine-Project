@@ -5,7 +5,7 @@
 namespace
 {
 
-char const BLANK_SYMBOL = '^';
+char const BLANK_SYMBOL = '0';
 
 } // namespace
 

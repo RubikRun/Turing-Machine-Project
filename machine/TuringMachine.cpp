@@ -1,5 +1,7 @@
 #include "TuringMachine.h"
 
+#include <iostream>
+
 namespace
 {
 
@@ -66,7 +68,8 @@ std::tuple<bool, Tape> TuringMachine::ExecuteOn(
             1. the character that we should set on the current tape cell
             2. the state that we should go to
             3. the move that we should do to the tape */
-        std::tuple<char, std::string, Move> transTarget;
+        std::tuple<char, std::string, Move> transTarget
+            = _transitions[std::make_tuple(head.Get(), state)];
         
         // Set the character under the machine's head
         head.Set(std::get<0>(transTarget));

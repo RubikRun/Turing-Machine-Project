@@ -1,0 +1,16 @@
+# This is an example Turing machine - a copy subroutine.
+# You give it a tape with n ones - 11111...
+# The machine copies those n ones to the right,
+# separating the new ones and the old ones with a zero
+# Example: 1111 should become 111101111, 1 should become 101
+
+0{initial}->0{halt}S
+1{initial}->0{s2}L
+0{s2}->0{s3}L
+1{s2}->1{s2}L
+0{s3}->1{s4}R
+1{s3}->1{s3}L
+0{s4}->0{s5}R
+1{s4}->1{s4}R
+0{s5}->1{initial}L
+1{s5}->1{s5}R

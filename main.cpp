@@ -10,6 +10,8 @@ using namespace TuringMachine;
 std::string const TRANSITIONS_FILE = "examples/transitions-0";
 std::string const TAPE_FILE = "examples/tape-0";
 
+char const COMMENT_BEGIN = '#';
+
 void ReadTransitions(
     std::vector<Transition>& transitions)
 {
@@ -23,8 +25,14 @@ void ReadTransitions(
     /* Read lines from the file.
        Each line is a transition of a Turing machine */
     std::string transitionStr;
-    while (inputFile >> transitionStr)
+    while (std::getline(inputFile, transitionStr))
     {
+        // Skip comments
+        if (transitionStr.empty()
+            || transitionStr.front() == COMMENT_BEGIN)
+        {
+            continue;
+        }
         // Add the parsed Transition object to the vector of transitions
         transitions.emplace_back(
             // Parse the transition string to a Transition object
