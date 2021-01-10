@@ -1,1 +1,1 @@
-g++ main.cpp machine/Tape.cpp -o program.exe
+g++ main.cpp machine/TuringMachine.cpp machine/Tape.cpp utils/parsingUtils.cpp -o program.exe
