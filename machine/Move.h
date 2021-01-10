@@ -6,8 +6,8 @@ namespace TuringMachine
 // A type for possible moves of a Turing machine's tape
 enum Move
 {
-    Left, // Moves the tape to the left (or the head to the right)
-    Right, // Moves the tape to the right (or the head to the left)
+    Left, // Moves the tape to the left
+    Right, // Moves the tape to the right
     Stay // Doesn't move the tape
 };
 

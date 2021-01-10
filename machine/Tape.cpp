@@ -33,6 +33,26 @@ Tape::Iterator::Iterator(
     _iterator = _tape->_activePart.begin();
 }
 
+void Tape::Iterator::DoMove(Move const& move)
+{
+    switch (move)
+    {
+        case Left: Next(); break;
+        case Right: Prev();
+        // case Stay: nothing
+    };
+}
+
+char Tape::Iterator::Get() const
+{
+    return *_iterator;
+}
+
+void Tape::Iterator::Set(char target)
+{
+    *_iterator = target;
+}
+
 void Tape::Iterator::Next()
 {
     /* if the iterator is on the rightmost cell of the active part
@@ -55,16 +75,6 @@ void Tape::Iterator::Prev()
         _tape->_activePart.push_front(BLANK_SYMBOL);
     }
     _iterator--;
-}
-
-char Tape::Iterator::Get() const
-{
-    return *_iterator;
-}
-
-void Tape::Iterator::Set(char target)
-{
-    *_iterator = target;
 }
 
 bool Tape::Iterator::IsLeftmost() const

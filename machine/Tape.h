@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Move.h"
+
 #include <list>
 #include <string>
 
@@ -53,14 +55,15 @@ class Tape
         Iterator(Tape&);
 
         /**
-         * Moves the iterator to the next cell of the tape
+         * Does the given move to the tape/iterator.
+         *  1. Left - moves the tape to the left (iterator to the right)
+         *  2. Right - moves the tape to the right(iterator to the left)
+         *  3. Stay - does not move the tape
+         * 
+         * @param[in] move
+         *  The move that we want to do to the tape
          */
-        void Next();
-
-        /**
-         * Moves the iterator to the previous cell of the tape
-         */
-        void Prev();
+        void DoMove(Move const&);
 
         /**
          * Returns the character in the current cell of the tape
@@ -78,6 +81,16 @@ class Tape
         void Set(char);
 
       private:
+
+         /**
+         * Moves the iterator to the next cell of the tape
+         */
+        void Next();
+
+        /**
+         * Moves the iterator to the previous cell of the tape
+         */
+        void Prev();
 
         /**
          * Checks if the iterator points to the first cell of the active part.
