@@ -1,15 +1,20 @@
-#include "../utils/parsingUtils.h"
+#include "parsingUtils.h"
 
 #include <regex>
+#include <stdexcept>
 
 namespace
 {
 
+// Regex for a valid transition string
 constexpr auto VALID_TRANSITION_STR_REGEX = "\\w\\{\\w+\\}->\\w\\{\\w+\\}\\w";
 
 } // namespace
 
 namespace TuringMachine
+{
+
+namespace ParsingUtils
 {
 
 Move ParseMove(char moveChar)
@@ -26,6 +31,7 @@ Move ParseMove(char moveChar)
 bool IsValidTransitionStr(
     std::string str)
 {
+    // Try to match against the regex for a valid transition string
     return std::regex_match(
         str,
         std::regex(VALID_TRANSITION_STR_REGEX)
@@ -66,4 +72,6 @@ Transition ParseTransition(
     return transition;
 }
 
-} // TuringMachine
+} // namespace ParsingUtils
+
+} // namespace TuringMachine

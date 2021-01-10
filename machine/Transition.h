@@ -30,4 +30,4 @@ struct Transition
     Move move;
 };
 
-} // TuringMachine
+} // namespace TuringMachine

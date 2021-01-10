@@ -3,12 +3,12 @@
 namespace TuringMachine
 {
 
-// An enum for the possible moves of the machine's tape
+// A type for possible moves of a Turing machine's tape
 enum Move
 {
-    Left,
-    Right,
-    Stay
+    Left, // Moves the tape to the left (or the head to the right)
+    Right, // Moves the tape to the right (or the head to the left)
+    Stay // Doesn't move the tape
 };
 
-} // TuringMachine
+} // namespace TuringMachine

@@ -2,9 +2,10 @@
 
 #include "../machine/Transition.h"
 
-#include <stdexcept>
-
 namespace TuringMachine
+{
+    
+namespace ParsingUtils
 {
 
 /**
@@ -36,7 +37,7 @@ bool IsValidTransitionStr(
 
 /**
  * Parses a Transition object from a string.
- * The strings are expected to be of the form:
+ * The string is expected to be of the form:
  *  <aSymbol>{<aState>}-><bSymbol>{<bState>}<move>
  * 
  * @param[in] str
@@ -48,4 +49,6 @@ Transition ParseTransition(
     std::string str
 );
 
-} // TuringMachine
+} // namespace ParsingUtils
+
+} // namespace TuringMachine

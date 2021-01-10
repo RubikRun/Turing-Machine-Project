@@ -1,1 +1,1 @@
-g++ main.cpp src/*.cpp -o program.exe
+g++ main.cpp machine/Tape.cpp -o program.exe
